@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-text = "username"></p>
+        <p v-text = "gender">性别：</p>
+
+        <hr>
+        <p>{{ username }}</p>
+        <p>性别：{{ gender }}</p>
+        <hr>
+        <p v-text = "info"></p>
+        <p>{{ info }}</p>
+        <p v-html = "info"></p>
+    </div>
+
+    <!-- 导入Vue的库文件 -->
+    <script src="./lib/vue-2.6.12.js"></script>
+    <!-- 创建Vue的实例对象 -->
+    <script>
+        const vm = new Vue({
+            //告诉vm要控制哪个区域
+            el: '#app',
+            //data 要渲染的页面上的数据
+            data: {
+                username: 'zhangsan',
+                gender: '女',
+                info: '<h4 style="color:red; font-weight: bold;">欢迎来到黑马学习 vue.js</h4>'
+            }
+        });
+    </script>
+</body>
+</html>
