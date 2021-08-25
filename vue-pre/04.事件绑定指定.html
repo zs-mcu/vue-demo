@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>count 的值是 ： {{ count }}</p>
+        <!-- <button v-on:click="add"> + 1</button> -->
+        <button v-on:click="sub"> - 1</button>
+
+        <button v-on:click="add(1,$event)"> + n</button>
+
+    </div>
+
+    <!-- 导入Vue的库文件 -->
+    <script src="./lib/vue-2.6.12.js"></script>
+
+    <script>
+        const vm = new Vue({
+            //告诉vm要控制哪个区域
+            el: '#app',
+            //data 要渲染的页面上的数据
+            data: {
+                count: 0
+            },
+            methods: {
+                // add(){
+                //     this.count++;
+                //     console.log("hello event");
+                // },
+                add(n,e){
+                    this.count += n;
+                    console.log(e);
+
+                    // if(this.count % 2 === 0 ){
+                    //     e.target.style.backgroundColor = 'red';
+                    // } else {
+                    //     e.target.style.backgroundColor = '';
+                    // }
+
+                    const nowBgColor = e.target.style.backgroundColor;
+                    e.target.style.backgroundColor = nowBgColor === 'cyan' ? '':'cyan';
+                },
+                sub(){
+                    this.count--;
+                    console.log("触发了sub的处理函数");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
